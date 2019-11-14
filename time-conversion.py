@@ -16,7 +16,7 @@ secs = os.path.getmtime(filename)
 
 tg = time.gmtime(secs)
 
-
+ 
 #Convert above time tuple to a string in HTTP format:
 
 last_mod_time = time.strftime("%a, %d %b %Y %H:%M:%S GMT\r\n", tg)
