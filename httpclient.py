@@ -10,15 +10,27 @@ import time
 
 def connect():
     print("Sending Request to " + host + ", " + str(port) + ":")
-    request = b"GET / HTTP/1.1\nHost: 127.0.0.1\n\n"
-    s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+    server_address = (host, port)
+    message  = b'GET / HTTP/1.1\r\n'
+    message += b'Host: httpbin.org:80\r\n'
+    message += b'Connection: close\r\n'
+    message += b'\r\n'
+
+    sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 
     try:
-        s.connect((host, port))
-        s.send(request)
-        result = s.recv(10000)
-        print(result)
-        clientsocket.close
+        sock.connect(server_address)
+        sock.sendall(message)
+
+        data = b''
+        while True:
+            buf = sock.recv(1024)
+            if not buf:
+                break
+            data += buf
+
+        sock.close()
+        print(data.decode())
 
     except socket.timeout as e:
         print("")
@@ -28,11 +40,8 @@ def connect():
         print("")
         print('Request attempt timed out (with an error)')
 
-def start_request():
-    connect()
-
 
 host = sys.argv[1]
 port = int(sys.argv[2])
 
-start_request()
+connect()
