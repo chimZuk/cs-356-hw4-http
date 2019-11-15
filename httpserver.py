@@ -84,6 +84,7 @@ while True:
         response += "Content-Length: " + str(42) + "\r\n"
         response += "Content-Type: text/html; charset=UTF-8\r\n"
         response += "\r\n"
-    #=================== Forming headers
+        response += "404 Not Found"
     connectionSocket.send(response.encode())
     connectionSocket.close()
+    #=================== Forming headers
