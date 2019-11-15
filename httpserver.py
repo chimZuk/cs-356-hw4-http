@@ -1,5 +1,5 @@
 #! /usr/bin/env python3
-# Dzmitry Kuzmitch 31479051 Section 101
+# Dzmitry Kuzmitch
 
 import sys
 import socket
