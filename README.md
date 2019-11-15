@@ -13,3 +13,7 @@ Make a GET request:
 ```py ./httpclient.py <domain:port/pagename.html>```
 
 or open ```<domain:port/pagename.html>``` in web browser.
+
+# Attention
+
+Using this code as your own solution for the CS 356 assignment is prohibited.
