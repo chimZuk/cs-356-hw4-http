@@ -5,7 +5,11 @@ A simplified version of a HTTP client and server using TCP Sockets. The client p
 # Run
 
 Start server:
+
 ```py ./httpserver.py <server IP> <server Port>```
 
 Make a GET request:
+
 ```py ./httpclient.py <domain:port/pagename.html>```
+
+or open ```<domain:port/pagename.html>``` in browser.
