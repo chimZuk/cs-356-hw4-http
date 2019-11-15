@@ -1,13 +1,13 @@
 #Get current time in UTC/GMT time zone and convert to string in HTTP format:
 
 import datetime, time
+import os.path
 tn = datetime.datetime.now(datetime.timezone.utc)
 date = tn.strftime("%a, %d %b %Y %H:%M:%S %Z\r\n")
 print("Date now: " + date)
 
 #Determining a file’s modification time (in seconds since 1 Jan, 1970 on Unix machines)
 
-import os.path
 filename = "filename.html"
 secs = os.path.getmtime(filename)
 
