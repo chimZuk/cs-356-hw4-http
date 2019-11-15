@@ -12,4 +12,4 @@ Make a GET request:
 
 ```py ./httpclient.py <domain:port/pagename.html>```
 
-or open ```<domain:port/pagename.html>``` in browser.
+or open ```<domain:port/pagename.html>``` in web browser.
