@@ -1,8 +1,5 @@
 #! /usr/bin/env python3
-# TCP Echo Server
-
-#response += "Date: Sun, 04 Mar 2018 21:24:58 GMT\r\n"
-#response += "Last-Modified: Fri, 02 Mar 2018 21:06:02 GMT\r\n"
+# Dzmitry Kuzmitch 31479051 Section 101
 
 import sys
 import socket
@@ -16,9 +13,10 @@ serverSocket.bind((serverIP, serverPort))
 serverSocket.listen(1)
 contents = ""
 
+count = 0
+
 while True:
     connectionSocket, address = serverSocket.accept()
-    print("Socket created for client " + address[0] + ", " + str(address[1]))
     data = connectionSocket.recv(10000).decode()
     headers_array = data.split("\n")
     get_header = headers_array[0].split(' ')
@@ -87,5 +85,5 @@ while True:
         response += "Content-Type: text/html; charset=UTF-8\r\n"
         response += "\r\n"
     #=================== Forming headers
-
     connectionSocket.send(response.encode())
+    connectionSocket.close()
